@@ -6,6 +6,29 @@ Closira AI Workflow is a production-style Python support workflow for Bloom Aest
 
 The workflow is designed for multi-turn customer support conversations and keeps the assistant constrained to the approved SOP data only. It avoids hallucinations by combining deterministic SOP matching with LLM-assisted classification and fallback escalation when the answer is not supported.
 
+---
+
+# Demo Preview
+
+## AI Support Dashboard Interface
+
+The project includes a modern AI support dashboard demonstrating:
+
+- SOP-grounded customer responses
+- Multi-turn conversation handling
+- Lead qualification flow
+- Escalation detection
+- Session tracking
+- Real-time FastAPI integration
+
+### Dashboard Screenshot
+
+<p align="center">
+  <img src="./assets/dashboard-preview.png" alt="Closira AI Support Dashboard" width="100%">
+</p>
+
+---
+
 ## Architecture
 
 The request flow is:
