@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Closira AI Workflow</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <div class="backdrop backdrop-a"></div>
+    <div class="backdrop backdrop-b"></div>
+
+    <main class="shell">
+      <aside class="sidebar card">
+        <div class="brand">
+          <div class="brand-mark">C</div>
+          <div>
+            <div class="eyebrow">Closira</div>
+            <h1>AI Support Desk</h1>
+          </div>
+        </div>
+
+        <section class="panel">
+          <div class="panel-title">Session</div>
+          <label class="field">
+            <span>Session ID</span>
+            <input id="sessionId" type="text" autocomplete="off" />
+          </label>
+          <button id="newSessionBtn" class="button secondary" type="button">New session</button>
+          <button id="healthBtn" class="button ghost" type="button">Check health</button>
+        </section>
+
+        <section class="metrics">
+          <div class="metric">
+            <span>FAQ</span>
+            <strong id="faqMetric">0</strong>
+          </div>
+          <div class="metric">
+            <span>Escalations</span>
+            <strong id="escalationMetric">0</strong>
+          </div>
+          <div class="metric">
+            <span>Qualification</span>
+            <strong id="qualificationMetric">0%</strong>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title">Live status</div>
+          <div class="status-pill" id="healthStatus">API ready</div>
+          <p class="panel-copy" id="healthCopy">Running against the local Closira API.</p>
+        </section>
+
+        <section class="panel quick-actions">
+          <div class="panel-title">Quick prompts</div>
+          <button class="chip" data-prompt="What are your Botox prices?" type="button">Botox pricing</button>
+          <button class="chip" data-prompt="Do you offer microneedling packages?" type="button">Out of scope</button>
+          <button class="chip" data-prompt="I want a refund, this is terrible." type="button">Escalation</button>
+          <button class="chip" data-prompt="We run a small wellness studio." type="button">Qualification</button>
+        </section>
+      </aside>
+
+      <section class="workspace card">
+        <header class="hero">
+          <div>
+            <div class="eyebrow">Operational preview</div>
+            <h2>Customer support with SOP control, qualification, and escalation</h2>
+            <p>
+              Ask about approved services, trigger a handoff, or walk through the lead qualification flow.
+              Responses come from the live FastAPI backend.
+            </p>
+          </div>
+          <div class="hero-badges">
+            <span class="badge">SOP grounded</span>
+            <span class="badge">Multi-turn</span>
+            <span class="badge">Escalation logging</span>
+          </div>
+        </header>
+
+        <div class="chat-frame">
+          <div class="chat-topbar">
+            <div>
+              <span class="dot"></span>
+              <strong id="currentSessionLabel">Session: demo</strong>
+            </div>
+            <button id="summaryBtn" class="button secondary" type="button">Refresh summary</button>
+          </div>
+
+          <div id="chatLog" class="chat-log" aria-live="polite"></div>
+
+          <div class="composer">
+            <textarea id="messageInput" rows="2" placeholder="Type a customer message..."></textarea>
+            <button id="sendBtn" class="button primary" type="button">Send</button>
+          </div>
+        </div>
+
+        <section class="summary-grid">
+          <article class="summary card-inner">
+            <div class="panel-title">Latest summary</div>
+            <pre id="summaryOutput" class="summary-output">Send a few messages to generate a summary.</pre>
+          </article>
+
+          <article class="summary card-inner">
+            <div class="panel-title">Conversation state</div>
+            <pre id="stateOutput" class="summary-output">No session loaded yet.</pre>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="/assets/app.js"></script>
+  </body>
+</html>
